@@ -3,7 +3,8 @@
 ## Introduction
 A basic cloudformation template to create a cross account read only role. 
 
-## How to use it?
-1. Replace the `SOURCE AWS ACCOUNT NUMBER` with the actual account number from where you want to switch role to the actual account (in which this cloudformation stack will be created)
+## Launch Stack
 
-2. By default, it attaches readonly policy. This can be modified and extended as required.
+[![Launch Stack]([https://github.com/tothenew/terraform-aws-eks/workflows/Lint/badge.svg](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=cross-account-ttn-devops-audit&templateURL=[https://s3.amazonaws.com/samplecfntemplates/mytemplate.template](https://raw.githubusercontent.com/tothenew/cross-account-role-cfn-ttn-audit/nitin/cfn-template.yml))
+
+By default, it attaches readonly policy. This can be modified and extended as required.
