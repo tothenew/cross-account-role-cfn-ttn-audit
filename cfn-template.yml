@@ -22,7 +22,7 @@ Resources:
         Statement:
           - Effect: Allow 
             Principal: 
-              AWS: <SOURCE AWS ACCOUNT NUMBER>
+              AWS: 321980358911
             Action: 'sts:AssumeRole'
       ManagedPolicyArns: 
         - 'arn:aws:iam::aws:policy/ReadOnlyAccess'
