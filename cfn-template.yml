@@ -1,0 +1,39 @@
+Resources:
+  Policies:
+    Type: 'AWS::IAM::ManagedPolicy'
+    Properties:
+      ManagedPolicyName: 'AdditionalPermissionsForPricing'
+      Path: "/"
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Action:
+              - 'pricing:DescribeServices'
+              - 'pricing:GetAttributeValues'
+              - 'pricing:GetProducts'
+            Resource: '*' 
+  ROLE: 
+    Type: 'AWS::IAM::Role'
+    Properties: 
+      RoleName: 'cross-account-ttn-audit-role'
+      AssumeRolePolicyDocument: 
+        Version: 2012-10-17 
+        Statement:
+          - Effect: Allow 
+            Principal: 
+              AWS: <SOURCE AWS ACCOUNT NUMBER>
+            Action: 'sts:AssumeRole'
+      ManagedPolicyArns: 
+        - 'arn:aws:iam::aws:policy/ReadOnlyAccess'
+        - !Ref Policies
+  
+Outputs: 
+  ROLENAME: 
+    Description: The following role has been created for cross account access 
+    Value: !Ref ROLE 
+  ROLEARN: 
+    Description: The ARN for the role 
+    Value: !GetAtt  
+      - ROLE 
+      - Arn
