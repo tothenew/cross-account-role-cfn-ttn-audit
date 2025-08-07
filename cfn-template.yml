@@ -12,12 +12,7 @@
                             "Principal": {
                                 "AWS": "897353564673"
                             },
-                            "Action": "sts:AssumeRole",
-                            "Condition": {
-                                "DateLessThan": {
-                                    "aws:CurrentTime": "2025-09-13T00:00:00Z"
-                                }
-                            }
+                            "Action": "sts:AssumeRole"
                         }
                     ]
                 },
@@ -147,7 +142,9 @@
                                     "Action": [
                                         "ce:Describe*",
                                         "ce:Get*",
-                                        "ce:List*"
+                                        "ce:List*",
+                                        "support:Get*",
+                                        "support:Describe*"
                                     ],
                                     "Resource": "*",
                                     "Effect": "Allow",
